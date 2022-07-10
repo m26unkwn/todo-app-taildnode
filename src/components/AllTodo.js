@@ -21,8 +21,16 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     setTodoList(completedTodoList);
   };
 
+  const resetTodoList = () => {
+    setTodoList([]);
+    localStorage.removeItem("todoList");
+  };
+
   return (
     <div className='todo-container'>
+      <button className='todo-reset' onClick={resetTodoList}>
+        Reset TODO
+      </button>
       <div className='active-todo'>
         {filteredTodoList.map((todo) => (
           <Todo

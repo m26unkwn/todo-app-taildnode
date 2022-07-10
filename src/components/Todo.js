@@ -27,7 +27,7 @@ export const Todo = ({
       onClick={() => {
         todo.completed ?? completedTodoList(todo);
       }}>
-      {todo.completed && <p className="todo-completed">completed</p>}
+      {todo.completed && <p className='todo-completed'>completed</p>}
       {todoValue}
     </div>
   );

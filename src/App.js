@@ -3,13 +3,10 @@ import "./App.css";
 import { AllTodo } from "./components/AllTodo";
 import { v4 as uuidv4 } from "uuid";
 
-const initialTodoList = JSON.parse(localStorage.getItem("activeTodo")) ?? [];
-const initialCompletedTodoList =
-  JSON.parse(localStorage.getItem("completedList")) ?? [];
+const initialTodoList = JSON.parse(localStorage.getItem("todoList")) ?? [];
 
 function App() {
   const [todoList, setTodoList] = useState(initialTodoList);
-  const [completedTodo, setCompletedTodo] = useState(initialCompletedTodoList);
   const [tags, setTags] = useState([]);
 
   const todoRef = useRef();
@@ -35,7 +32,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("activeTodo", JSON.stringify(todoList));
+    localStorage.setItem("todoList", JSON.stringify(todoList));
   }, [todoList]);
 
   const addTagIntoTags = useCallback(

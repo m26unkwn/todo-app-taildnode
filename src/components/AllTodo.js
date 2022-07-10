@@ -28,23 +28,30 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
 
   return (
     <div className='todo-container'>
-      <button className='todo-reset' onClick={resetTodoList}>
-        Reset TODO
-      </button>
-      <div className='active-todo'>
-        {filteredTodoList.map((todo) => (
-          <Todo
-            todo={todo}
-            key={todo.id}
-            todoItem={todo.todo}
-            tags={tags}
-            addTagsIntoTags={addTagIntoTags}
-            todoList={todoList}
-            setTodoList={setTodoList}
-            completedTodoList={completedTodoList}
-          />
-        ))}
-      </div>
+      {filteredTodoList.length > 0 ? (
+        <>
+          {" "}
+          <button className='todo-reset' onClick={resetTodoList}>
+            Reset TODO
+          </button>
+          <div className='active-todo'>
+            {filteredTodoList.map((todo) => (
+              <Todo
+                todo={todo}
+                key={todo.id}
+                todoItem={todo.todo}
+                tags={tags}
+                addTagsIntoTags={addTagIntoTags}
+                todoList={todoList}
+                setTodoList={setTodoList}
+                completedTodoList={completedTodoList}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <h1>Please Add Some Todo</h1>
+      )}
     </div>
   );
 };

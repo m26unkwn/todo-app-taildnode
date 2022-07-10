@@ -13,7 +13,11 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     const activeTodoList = todoList.filter(
       (currentTodo) => currentTodo.id !== todo.id,
     );
-    const completedTodoList = activeTodoList.concat(todo);
+
+    const compltedTodoList = todoList.filter((todo) => todo.complted);
+    const allCompltedTodoList = [todo, compltedTodoList];
+
+    const completedTodoList = activeTodoList.concat(allCompltedTodoList);
     setTodoList(completedTodoList);
   };
 

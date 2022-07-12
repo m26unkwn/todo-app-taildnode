@@ -15,16 +15,12 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     );
 
     const compltedTodoList = todoList.filter((todo) => todo.complted);
+
     todo["completed"] = true;
     todo["id"] = uuidv4();
+
     const allCompltedTodoList = [todo, ...compltedTodoList];
-
-    console.log({ allCompltedTodoList });
-
-    console.log({ activeTodoList });
-
     const completedTodoList = [...activeTodoList, ...allCompltedTodoList];
-    console.log({ completedTodoList });
     setTodoList(completedTodoList);
   };
 

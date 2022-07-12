@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Todo } from "./Todo";
 import { filterTags } from "../utils";
+import { v4 as uuidv4 } from "uuid";
 
 export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
   const filteredTodoList = useMemo(
@@ -9,15 +10,21 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
   );
 
   const completedTodoList = (todo) => {
-    todo["completed"] = true;
     const activeTodoList = todoList.filter(
       (currentTodo) => currentTodo.id !== todo.id,
     );
 
     const compltedTodoList = todoList.filter((todo) => todo.complted);
-    const allCompltedTodoList = [todo, compltedTodoList];
+    todo["completed"] = true;
+    todo["id"] = uuidv4();
+    const allCompltedTodoList = [todo, ...compltedTodoList];
 
-    const completedTodoList = activeTodoList.concat(allCompltedTodoList);
+    console.log({ allCompltedTodoList });
+
+    console.log({ activeTodoList });
+
+    const completedTodoList = [...activeTodoList, ...allCompltedTodoList];
+    console.log({ completedTodoList });
     setTodoList(completedTodoList);
   };
 

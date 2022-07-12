@@ -7,7 +7,7 @@ export const Todo = ({
   addTagsIntoTags,
   completedTodoList,
 }) => {
-  const todoValue = todoItem.map((value) => {
+  const todoValue = todoItem?.map((value) => {
     if (value[0] === "#" && value.length > 0) {
       return (
         <span

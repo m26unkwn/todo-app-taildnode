@@ -17,7 +17,6 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     todo["completed"] = true;
     todo["id"] = uuidv4();
 
-    const allCompltedTodoList = [todo, ...compltedTodoList];
     const allCompltedTodoList = [...compltedTodoList, todo];
     const completedTodoList = [...activeTodoList, ...allCompltedTodoList];
     setTodoList(completedTodoList);

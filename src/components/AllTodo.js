@@ -14,7 +14,7 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
       (currentTodo) => currentTodo.id !== todo.id
     );
     const compltedTodoList = todoList.filter((todo) => {
-      console.log(todo.completed);
+      return todo.completed;
     });
     console.log({ completedTodoList });
     todo["completed"] = true;

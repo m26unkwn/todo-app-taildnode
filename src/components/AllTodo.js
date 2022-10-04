@@ -14,9 +14,9 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
       (currentTodo) => currentTodo.id !== todo.id
     );
 
-    const compltedTodoList = todoList.filter((todo) => todo.complted);
+    const compltedTodoList = todoList.filter((todo) => todo.completed);
 
-    todo["complted"] = true;
+    todo["completed"] = true;
     todo["id"] = uuidv4();
 
     const allCompltedTodoList = [todo, ...compltedTodoList];

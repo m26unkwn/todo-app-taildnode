@@ -10,12 +10,12 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
   );
 
   const completedTodoList = (todo) => {
-    todo["completed"] = true;
     const activeTodoList = todoList.filter(
       (currentTodo) => currentTodo.id !== todo.id
     );
 
     const compltedTodoList = todoList.filter((todo) => todo.completed);
+    todo["completed"] = true;
 
     const allCompltedTodoList = [todo, ...compltedTodoList];
     const completedTodoList = [...activeTodoList, ...allCompltedTodoList];

@@ -15,9 +15,11 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     );
 
     const compltedTodoList = todoList.filter((todo) => todo.completed);
+    console.log({ completedTodoList });
     todo["completed"] = true;
 
-    const allCompltedTodoList = [todo, ...compltedTodoList];
+    const allCompltedTodoList = [...compltedTodoList, todo];
+    console.log({ allCompltedTodoList });
     const completedTodoList = [...activeTodoList, ...allCompltedTodoList];
     setTodoList(completedTodoList);
   };

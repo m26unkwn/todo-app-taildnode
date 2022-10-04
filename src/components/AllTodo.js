@@ -13,7 +13,7 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
     const activeTodoList = todoList.filter(
       (currentTodo) => currentTodo.id !== todo.id
     );
-    const compltedTodoList = todoList.filter((todo) => todo.complted);
+    const compltedTodoList = todoList.filter((todo) => todo.completed);
     console.log({ completedTodoList });
     todo["completed"] = true;
     todo["id"] = uuidv4();

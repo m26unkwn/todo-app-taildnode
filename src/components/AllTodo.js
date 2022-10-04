@@ -6,20 +6,20 @@ import { v4 as uuidv4 } from "uuid";
 export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
   const filteredTodoList = useMemo(
     () => filterTags(todoList, tags),
-    [todoList, tags],
+    [todoList, tags]
   );
 
   const completedTodoList = (todo) => {
     const activeTodoList = todoList.filter(
-      (currentTodo) => currentTodo.id !== todo.id,
+      (currentTodo) => currentTodo.id !== todo.id
     );
 
     const compltedTodoList = todoList.filter((todo) => todo.complted);
 
-    todo["completed"] = true;
+    todo["complted"] = true;
     todo["id"] = uuidv4();
 
-    const allCompltedTodoList = [todo,...compltedTodoList];
+    const allCompltedTodoList = [todo, ...compltedTodoList];
     const completedTodoList = [...activeTodoList, ...allCompltedTodoList];
     setTodoList(completedTodoList);
   };
@@ -30,14 +30,14 @@ export const AllTodo = ({ todoList, addTagIntoTags, tags, setTodoList }) => {
   };
 
   return (
-    <div className='todo-container'>
+    <div className="todo-container">
       {filteredTodoList.length > 0 ? (
         <>
           {" "}
-          <button className='todo-reset' onClick={resetTodoList}>
+          <button className="todo-reset" onClick={resetTodoList}>
             Reset TODO
           </button>
-          <div className='active-todo'>
+          <div className="active-todo">
             {filteredTodoList.map((todo) => (
               <Todo
                 todo={todo}
